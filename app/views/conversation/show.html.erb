@@ -1,0 +1,16 @@
+<h1><%= @recipient.email %></h1>
+
+<% @posts.each do |post| %>
+  <div>
+    <% if post.html_value %>
+      <pre class="post_value"><%= post.html_value.html_safe %></pre>
+      <span class="small">Sent by: <%= post.sender.try(:email) %></span>
+    <% elsif post.text_value %>
+      <pre class="post_value"><%= post.text_value %></pre>
+      <span class="small">Sent by: <%= post.sender.try(:email) %></span>
+    <% else %>
+      <h4>No posts yet!</h4>
+    <% end %>
+  </div>
+  <br><br>
+<% end %>

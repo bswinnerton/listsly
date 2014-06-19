@@ -2,8 +2,10 @@
 
 FactoryGirl.define do
   factory :email do
-    converstion
+    conversation
     sender
     recipient
+    text_value 'I love cats'
+    html_value '<h1>I LOVE CATS</h1>'
   end
 end

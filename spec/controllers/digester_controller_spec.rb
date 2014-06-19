@@ -35,6 +35,11 @@ describe DigesterController do
         post :email, mandrill_events: mandrill_response
       end
 
+      it 'sets the value of the conversation' do
+        #TODO need a more authoritative source than not nil
+        expect(Email.last.conversation).to_not be_nil
+      end
+
       it 'sets the sender' do
         expect(Email.last.sender.email).to eq sender_attributes[:email]
         expect(Email.last.sender.name).to eq sender_attributes[:name]
