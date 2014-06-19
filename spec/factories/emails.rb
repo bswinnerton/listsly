@@ -5,7 +5,13 @@ FactoryGirl.define do
     conversation
     sender
     recipient
-    text_value 'I love cats'
-    html_value '<h1>I LOVE CATS</h1>'
+
+    factory :text_email do
+      text_value 'I love cats'
+    end
+
+    factory :html_email do
+      html_value '<h1>I LOVE CATS</h1>'
+    end
   end
 end

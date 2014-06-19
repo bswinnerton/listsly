@@ -2,11 +2,8 @@
 
 <% @posts.each do |post| %>
   <div>
-    <% if post.html_value %>
-      <pre class="post_value"><%= post.html_value.html_safe %></pre>
-      <span class="small">Sent by: <%= post.sender.try(:email) %></span>
-    <% elsif post.text_value %>
-      <pre class="post_value"><%= post.text_value %></pre>
+    <% if post.value %>
+      <pre class="post_value"><%= post.value %></pre>
       <span class="small">Sent by: <%= post.sender.try(:email) %></span>
     <% else %>
       <h4>No posts yet!</h4>

@@ -10,7 +10,8 @@ describe ConversationController do
 
   describe 'GET "show"' do
     it 'returns http success' do
-      get :show, conversation_name: :cats
+      email = create :email
+      get :show, conversation_name: email.recipient.name.downcase
       expect(response).to be_success
     end
   end
