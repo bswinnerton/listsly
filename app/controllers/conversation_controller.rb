@@ -5,7 +5,7 @@ class ConversationController < ApplicationController
   def show
     @recipient = Recipient.find_by(email: "#{params[:conversation_name]}@lists.ly")
     if @recipient
-      @posts = Email.where(recipient: @recipient)
+      @posts = Email.where(recipient: @recipient).order(created_at: :desc)
     else
       raise ActiveRecord::RecordNotFound
     end
