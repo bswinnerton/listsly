@@ -1,6 +1,5 @@
 class ConversationController < ApplicationController
   def index
-    render text: 'Lists.ly', status: 200
   end
 
   def show

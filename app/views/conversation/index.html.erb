@@ -1,2 +1,38 @@
-<h1>Conversation#index</h1>
-<p>Find me in app/views/conversation/index.html.erb</p>
+<style type="text/css">
+  body {
+    text-shadow: #fff 0 1px 0;
+    background: #ecf0f1;
+    font-family: 'Lobster Two', cursive;
+    font-weight: 700;
+  }
+  .logo {
+    font-size: 130px;
+    color: #c14848;
+  }
+  #main {
+    width: 220px;
+    height: 250px;
+    left: 50%;
+    top: 50%;
+    margin-left: -110px;
+    margin-top: -150px;
+    position: fixed;
+    text-align: center;
+  }
+  h3 > a {
+    text-decoration: none;
+    color: #AAAAAA;
+  }
+</style>
+
+<div id="main">
+  <i class="icon-envelope logo"></i>
+  <h1>Coming Soon...</h1>
+  <h3><a href="mailto:bswinnerton+listsly@gmail.com">Say hello.</a></h3>
+</div>
+<script src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+  jQuery(document).ready(function ($) {
+    $("#main").hide().fadeIn("slow");
+  });
+</script>
