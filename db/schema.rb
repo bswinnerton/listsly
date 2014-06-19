@@ -14,14 +14,15 @@
 ActiveRecord::Schema.define(version: 20140619042635) do
 
   create_table "conversations", force: true do |t|
+    t.string   "name",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "emails", force: true do |t|
-    t.integer  "conversation_id"
-    t.integer  "sender_id"
-    t.integer  "recipient_id"
+    t.integer  "conversation_id", null: false
+    t.integer  "sender_id",       null: false
+    t.integer  "recipient_id",    null: false
     t.text     "text_value"
     t.text     "html_value"
     t.datetime "created_at"
@@ -38,7 +39,7 @@ ActiveRecord::Schema.define(version: 20140619042635) do
 
   create_table "recipients", force: true do |t|
     t.integer  "user_id"
-    t.string   "email"
+    t.string   "email",      null: false
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -46,7 +47,7 @@ ActiveRecord::Schema.define(version: 20140619042635) do
 
   create_table "senders", force: true do |t|
     t.integer  "user_id"
-    t.string   "email"
+    t.string   "email",      null: false
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"

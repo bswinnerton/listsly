@@ -30,14 +30,15 @@ describe DigesterController do
       expect(response).to be_success
     end
 
+    it 'rolls back the transaction if not successful'
+
     context 'setters' do
       before :each do
         post :email, mandrill_events: mandrill_response
       end
 
       it 'sets the value of the conversation' do
-        #TODO need a more authoritative source than not nil
-        expect(Email.last.conversation).to_not be_nil
+        expect(Email.last.conversation.name).to eq recipient_attributes[:email]
       end
 
       it 'sets the sender' do

@@ -5,6 +5,10 @@ describe Email do
   it { should belong_to(:sender) }
   it { should belong_to(:recipient) }
 
+  it { should validate_presence_of(:conversation_id) }
+  it { should validate_presence_of(:sender_id) }
+  it { should validate_presence_of(:recipient_id) }
+
   describe '#value' do
     it 'returns the html_value if exists' do
       email = create :html_email

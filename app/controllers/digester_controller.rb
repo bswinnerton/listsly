@@ -3,21 +3,21 @@ class DigesterController < ApplicationController
 
   def email
     if params[:mandrill_events]
-      @events = JSON.parse(params[:mandrill_events]) if params[:mandrill_events]
+      @events = JSON.parse(params[:mandrill_events])
       @events.each do |event|
-        sender = Sender.find_or_create_by(email: event['msg']['from_email']) do |s|
-          s.name = event['msg']['from_name']
+        ActiveRecord::Base.transaction do
+          mandrill_event  = MandrillEvent.new(event)
+          sender          = Sender.find_or_create_for_mandrill_event!(mandrill_event.from_email, mandrill_event.from_name)
+          recipient       = Recipient.find_or_create_for_mandrill_event!(mandrill_event.to_email, mandrill_event.to_name)
+          conversation    = Conversation.find_or_create_by!(name: recipient.email)
+          Email.create!(
+            conversation: conversation,
+            sender: sender,
+            recipient: recipient,
+            html_value: mandrill_event.html_value,
+            text_value: mandrill_event.text_value,
+          )
         end
-        recipient = Recipient.find_or_create_by(email: event['msg']['email']) do |r|
-          r.name = event['msg']['to'].last.last
-        end
-        conversation = Conversation.find_or_create_by(id: recipient.id)
-        Email.create(
-          conversation: conversation,
-          sender: sender,
-          recipient: recipient,
-          text_value: event['msg']['text'],
-          html_value: event['msg']['html'])
       end
       render nothing: true, status: 200
     else
