@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140619042635) do
+ActiveRecord::Schema.define(version: 20140619041918) do
 
   create_table "conversations", force: true do |t|
     t.string   "name",       null: false
@@ -25,14 +25,6 @@ ActiveRecord::Schema.define(version: 20140619042635) do
     t.integer  "recipient_id",    null: false
     t.text     "text_value"
     t.text     "html_value"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "messages", force: true do |t|
-    t.integer  "conversation_id"
-    t.integer  "sender_id"
-    t.integer  "recipient_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
