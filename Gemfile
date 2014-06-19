@@ -10,6 +10,7 @@ gem 'jbuilder', '~> 2.0'
 
 group :production, :staging do
   gem 'raygun4ruby'
+  gem 'newrelic_rpm'
 end
 
 group :production do
