@@ -8,6 +8,9 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 
+gem 'sidekiq'
+gem 'sinatra', '>= 1.3.0', require: false
+
 group :production, :staging do
   gem 'raygun4ruby'
   gem 'newrelic_rpm'
