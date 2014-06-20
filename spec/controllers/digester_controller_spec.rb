@@ -14,6 +14,7 @@ describe DigesterController do
           'from_name' => sender_attributes[:name],
           'email' => 'cats@lists.ly',
           'to' => [['cats@lists.ly', 'Cats']],
+          'headers' => { 'Date' => Time.now - 1.day },
           'text' => text,
           'html' => html
         }

@@ -14,6 +14,7 @@ class DigesterController < ApplicationController
             conversation: conversation,
             sender: sender,
             recipient: recipient,
+            received_at: mandrill_event.received_at,
             html_value: mandrill_event.html_value,
             text_value: mandrill_event.text_value,
           )

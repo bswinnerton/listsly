@@ -5,6 +5,7 @@ FactoryGirl.define do
     conversation
     sender
     recipient
+    received_at { Time.now - 1.day }
 
     factory :text_email do
       text_value 'I love cats'

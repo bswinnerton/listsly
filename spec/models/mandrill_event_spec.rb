@@ -10,6 +10,7 @@ describe MandrillEvent do
          "from_name"=>email.sender.name,
          "email"=>email.recipient.email,
          "to"=>[[email.recipient.email, email.recipient.name]],
+         "headers"=>{ "Date"=>"#{Time.now - 1.day}" },
          "text"=>email.text_value,
          "html"=>email.html_value
        }
