@@ -8,4 +8,8 @@ class Recipient < ActiveRecord::Base
       s.name = name
     end
   end
+
+  def conversation_friendly_name
+    email.gsub(/^(.*)@.*$/, '\1')
+  end
 end

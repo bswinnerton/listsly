@@ -9,7 +9,7 @@ class DigesterController < ApplicationController
           mandrill_event  = MandrillEvent.new(event)
           sender          = Sender.find_or_create_for_mandrill_event!(mandrill_event.from_email, mandrill_event.from_name)
           recipient       = Recipient.find_or_create_for_mandrill_event!(mandrill_event.to_email, mandrill_event.to_name)
-          conversation    = Conversation.find_or_create_by!(name: recipient.email)
+          conversation    = Conversation.find_or_create_by!(name: recipient.conversation_friendly_name)
           Email.create!(
             conversation: conversation,
             sender: sender,

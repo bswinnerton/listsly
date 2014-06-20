@@ -19,4 +19,12 @@ describe Recipient do
       expect(created_recipient.name).to eq recipient[:name]
     end
   end
+
+  describe '#conversation_friendly_name' do
+    let(:recipient) { create :recipient }
+
+    it 'returns the first half of an email address' do
+      expect(recipient.conversation_friendly_name).to eq recipient.email.gsub(/^(.*)@.*$/, '\1')
+    end
+  end
 end

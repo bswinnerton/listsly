@@ -2,7 +2,6 @@
 
 FactoryGirl.define do
   factory :conversation do
-    sequence :id
-    name 'Cats'
+    name 'cats'
   end
 end

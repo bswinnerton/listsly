@@ -38,7 +38,8 @@ describe DigesterController do
       end
 
       it 'sets the value of the conversation' do
-        expect(Email.last.conversation.name).to eq recipient_attributes[:email]
+        #TODO make test less brittle with mocks
+        expect(Conversation.last.name).to eq recipient_attributes[:email].gsub(/^(.*)@.*/, '\1')
       end
 
       it 'sets the sender' do
