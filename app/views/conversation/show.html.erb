@@ -1,7 +1,7 @@
 <h1><%= "#{@conversation.name}@lists.ly" %></h1>
 
 <% @posts.each do |post| %>
-  <div>
+  <div class="post">
     <% if post.value %>
       <pre class="post_value"><%= post.value %></pre>
       <span class="small">Sent by: <%= post.sender.email %> on <%= post.received_at.strftime("%B #{post.received_at.day.ordinalize} %Y at %l:%M%p") %></span>

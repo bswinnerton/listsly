@@ -2,12 +2,27 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.post_value {
-  background-color: #EEE;
-  border: 1px solid;
-  padding: 5px;
-}
+.post {
+  .post_value {
+    background-color: #EEE;
+    border: 1px solid;
+    padding: 15px;
+  }
 
-.small {
-  font-size: 10px;
+  pre {
+    white-space: pre-wrap;       /* css-3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+  }
+
+  img {
+    max-width:100%;
+    max-height:100%;
+  }
+
+  .small {
+    font-size: 10px;
+  }
 }
