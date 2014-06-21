@@ -2,7 +2,6 @@
 
 FactoryGirl.define do
   factory :recipient do
-    user
     email 'cats@lists.ly'
     name 'Cats'
   end

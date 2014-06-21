@@ -15,3 +15,23 @@
  */
 
 @import 'bootstrap';
+
+body { 
+  font-family: 'Raleway', sans-serif;
+  line-height: 160%;
+  font-size: 16px;
+}
+
+.lobster {
+  font-family: 'Lobster Two', cursive;
+  font-weight: 700;
+}
+
+.flash-messages {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.flash-messages-padding {
+  padding: 40px 0 20px 0;
+}

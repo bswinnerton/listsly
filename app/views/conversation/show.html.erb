@@ -1,4 +1,12 @@
-<h1 class="conversation-title text-center"><%= "#{@conversation.name}@lists.ly" %></h1>
+<div id="sign-in-or-up" class="col-lg-4 col-md-4 col-sm-4 col-lg-offset-8 col-md-offset-8 col-sm-offset-8">
+  <% if current_user %>
+    <%= current_user.email %> | <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+  <% else %>
+    <%= link_to 'Sign In', new_user_session_path %>
+  <% end %>
+</div>
+
+<h1 class="conversation-title lobster text-center"><%= "#{@conversation.name}@lists.ly" %></h1>
 
 <% @posts.each do |post| %>
   <div class="post">
