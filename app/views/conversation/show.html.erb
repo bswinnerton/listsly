@@ -1,13 +1,19 @@
-<h1><%= "#{@conversation.name}@lists.ly" %></h1>
+<h1 class="conversation-title text-center"><%= "#{@conversation.name}@lists.ly" %></h1>
 
 <% @posts.each do |post| %>
   <div class="post">
     <% if post.value %>
-      <pre class="post_value"><%= post.value %></pre>
-      <span class="small">Sent by: <%= post.sender.email %> on <%= post.received_at.strftime("%B #{post.received_at.day.ordinalize} %Y at %l:%M%p") %></span>
+      <div class="well"><%= post.value %></div>
+      <small><span class="glyphicon glyphicon-comment">&nbsp;</span>Sent by <%= post.sender.email %> on <%= post.received_at.strftime("%B #{post.received_at.day.ordinalize} %Y at %l:%M%p") %></small>
     <% else %>
       <h4>No posts yet!</h4>
     <% end %>
   </div>
   <br><br>
 <% end %>
+
+<div id="footer">
+  <div class="container">
+    <p class="text-center">You are on a rock floating through space.</p>
+  </div>
+</div>
