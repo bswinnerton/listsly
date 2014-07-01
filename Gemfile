@@ -10,6 +10,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 
+gem 'awesome_print'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'devise'
 gem 'sidekiq'
@@ -32,7 +33,6 @@ group :development, :test do
   gem 'pry-remote'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'awesome_print'
 
   # Required here for rails generators
   gem 'rspec-rails'
