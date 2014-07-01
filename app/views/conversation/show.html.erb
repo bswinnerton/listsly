@@ -11,8 +11,8 @@
 <% @posts.each do |post| %>
   <div class="post">
     <% if post.value %>
-      <div class="well"><%= post.value %></div>
-      <small><span class="glyphicon glyphicon-comment">&nbsp;</span>Sent by <%= post.sender.email %> on <%= post.received_at.strftime("%B #{post.received_at.day.ordinalize} %Y at %l:%M%p") %></small>
+      <div class="well"><%= post.value %></pre>
+      <small><span class="glyphicon glyphicon-comment">&nbsp;</span>Sent by <%= post.sender.email %> on <%= conversation_friendly_date(post)  %></small>
     <% else %>
       <h4>No posts yet!</h4>
     <% end %>
