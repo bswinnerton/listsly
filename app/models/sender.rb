@@ -8,4 +8,8 @@ class Sender < ActiveRecord::Base
       s.name = name
     end
   end
+
+  def gravatar_email_hash
+    Digest::MD5.hexdigest(email.downcase.strip)
+  end
 end

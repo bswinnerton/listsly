@@ -6,10 +6,24 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.find_or_initialize_by(email: 'bswinnerton@gmail.com') do |u|
+brooks = User.find_or_initialize_by(email: 'bswinnerton@gmail.com') do |u|
+  u.name = 'Brooks Swinnerton'
   u.encrypted_password = '$2a$10$XJ8sD58cfkhPNPZxAFFyLuzh1/bEXA4yU/TiQc4XO0P1.K6mGJyv6'
   u.created_at = Time.now
   u.updated_at = Time.now
   u.confirmed_at = Time.now
   u.is_admin = true
-end.save!(validate: false)
+end.tap{ |u| u.save!(validate: false) }
+
+sender        = Sender.create(email: brooks.email, name: brooks.name)
+recipient     = Recipient.create(email: 'cats@lists.ly', name: 'cats')
+conversation  = Conversation.create(name: 'cats')
+                Email.create(
+                  sender: sender,
+                  recipient: recipient,
+                  conversation: conversation,
+                  html_value: '<img src="http://media3.giphy.com/media/12bjQ7uASAaCKk/giphy.gif"/>',
+                  text_value: 'Cats.',
+                  received_at: Time.now,
+                  sent_at: Time.now - 10.seconds
+                )

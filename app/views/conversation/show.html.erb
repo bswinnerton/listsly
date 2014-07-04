@@ -12,7 +12,7 @@
   <div class="post">
     <% if post.value %>
       <div class="well"><%= post.value %></pre>
-      <small><span class="glyphicon glyphicon-comment">&nbsp;</span>Sent by <%= post.sender.email %> on <%= conversation_friendly_date(post)  %></small>
+      <div class="sent-by"><small><%= gravatar_image_tag(post.sender, size: :small) %><span class="glyphicon glyphicon-comment"></span>Sent by <%= post.sender.email %> on <%= conversation_friendly_date(post) %></small></div>
     <% else %>
       <h4>No posts yet!</h4>
     <% end %>
