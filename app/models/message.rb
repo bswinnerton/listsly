@@ -7,6 +7,8 @@ class Message < ActiveRecord::Base
   validates_presence_of :sender_id
   validates_presence_of :recipient_id
 
+  has_paper_trail
+
   def value
     raise NotImplementedError
   end

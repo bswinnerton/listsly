@@ -3,6 +3,8 @@ class Sender < ActiveRecord::Base
 
   validates_presence_of :email
 
+  has_paper_trail
+
   def self.find_or_create_for_mandrill_event!(email, name)
     find_or_create_by!(email: email) do |s|
       s.name = name

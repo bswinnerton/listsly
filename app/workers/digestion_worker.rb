@@ -2,6 +2,8 @@ class DigestionWorker
   include Sidekiq::Worker
 
   def perform(mandrill_events)
+    PaperTrail.whodunnit = 'Email Import Robot'
+
     events = JSON.parse(mandrill_events)
     events.each do |event|
       ActiveRecord::Base.transaction do

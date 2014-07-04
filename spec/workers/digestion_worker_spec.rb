@@ -9,7 +9,17 @@ describe DigestionWorker, sidekiq: :fake do
   let(:html) { MANDRILL_RESPONSE.first['msg']['html'] }
   let(:mandrill_response) { MANDRILL_RESPONSE.to_json }
 
-  it 'rolls back the transaction if not successful'
+  before :each do
+    DigestionWorker.perform_async(mandrill_response)
+  end
+
+  it 'sets the papertrail originator', versioning: true do
+    PaperTrail.should be_enabled
+    Sender.last.originator == 'Email Import Robot'
+    Recipient.last.originator == 'Email Import Robot'
+    Conversation.last.originator == 'Email Import Robot'
+    Email.last.originator == 'Email Import Robot'
+  end
 
   it 'sets the value of the conversation' do
     #TODO make test less brittle with mocks

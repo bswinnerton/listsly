@@ -10,9 +10,12 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 
-gem 'awesome_print'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'devise'
+gem 'paper_trail', '~> 3.0.3'
+
+gem 'pry-rails'
+gem 'awesome_print'
 gem 'sidekiq'
 gem 'sinatra', '>= 1.3.0', require: false
 
@@ -29,7 +32,6 @@ end
 
 group :development, :test do
   gem 'sqlite3'
-  gem 'pry-rails'
   gem 'pry-remote'
   gem 'better_errors'
   gem 'binding_of_caller'
