@@ -12,7 +12,7 @@ describe Message do
   describe '#value' do
     it 'returns the html_value if exists' do
       email = create :html_email
-      expect(email.value).to eq email.html_value.html_safe
+      expect(email.value).to eq email.html_value
     end
 
     it 'returns the text_value if exists and html_value does not' do

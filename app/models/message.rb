@@ -8,10 +8,6 @@ class Message < ActiveRecord::Base
   validates_presence_of :recipient_id
 
   def value
-    if html_value
-      html_value.html_safe
-    elsif text_value
-      text_value
-    end
+    raise NotImplementedError
   end
 end

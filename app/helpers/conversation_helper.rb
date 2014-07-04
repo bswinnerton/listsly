@@ -1,4 +1,8 @@
 module ConversationHelper
+  def stripped_break_tags(value)
+    value.gsub(/(<br( |\/| \/)?>)+/, "\n").strip.html_safe
+  end
+
   def conversation_friendly_date(post)
     post.received_at.strftime("%B #{post.received_at.day.ordinalize} %Y at %l:%M%p")
   end
