@@ -8,7 +8,7 @@ feature 'Conversation view' do
 
   scenario 'Visits a conversation page' do
     email = create :html_email
-    visit '/cats'
+    visit conversation_path(conversation_name: email.conversation.name)
     expect(page).to have_content email.recipient.email
     expect(page).to have_content email.sender.email
     expect(page).to have_content ActionView::Base.full_sanitizer.sanitize(email.value)

@@ -24,7 +24,7 @@ describe Recipient do
     let(:recipient) { create :recipient }
 
     it 'returns the first half of an email address' do
-      expect(recipient.conversation_friendly_name).to eq recipient.email.gsub(/^(.*)@.*$/, '\1')
+      expect(recipient.conversation_friendly_name).to eq 'cats'
     end
   end
 end

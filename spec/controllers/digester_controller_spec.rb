@@ -4,10 +4,6 @@ describe DigesterController do
   describe 'POST "email"' do
     let(:mandrill_response) { MANDRILL_RESPONSE.to_json }
 
-    before :each do
-      post :email, mandrill_events: mandrill_response
-    end
-
     it 'returns 404 if mandrill_events is not in params' do
       post :email
       expect(response.status).to eq 404
